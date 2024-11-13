@@ -8,10 +8,9 @@ def follower_check(data1, data2):
     check = ""
     if data1["follower_count"] > data2["follower_count"]:
         check = "a"
-        return check
     elif data1["follower_count"] < data2["follower_count"]:
         check = "b"
-        return check
+    return check
 
 def random_vs_random():
     game_data = random.sample(data, 2)
