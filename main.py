@@ -46,7 +46,7 @@ while game:
 
     print(f"Compare A: {format_data(data1)}.")
     print(vs)
-    print(f"Compare A: {format_data(data2)}.")
+    print(f"Compare B: {format_data(data2)}.")
     choice = str(input("Who has more followers? Type 'A' or 'B': ")).lower()
     if choice == follower_check(data1, data2):
         point += 1
