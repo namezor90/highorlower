@@ -5,6 +5,17 @@ from game_data import data
 print(logo)
 
 def follower_check(data1, data2):
+    """
+    Összehasonlítja a data1 és data2 paraméterekben megadott "follower_count" értékeket, és visszatér
+    a magasabb követőszámmal rendelkező adat azonosítójával.
+
+    Paraméterek:
+        data1 (dict): Az első összehasonlítandó adat.
+        data2 (dict): A második összehasonlítandó adat.
+
+    Visszatérési érték:
+        str: "a" ha az első adat követőszáma nagyobb, "b" ha a másodiké nagyobb
+    """
     check = ""
     if data1["follower_count"] > data2["follower_count"]:
         check = "a"
@@ -13,12 +24,29 @@ def follower_check(data1, data2):
     return check
 
 def random_vs_random():
+    """
+    Véletlenszerűen kiválaszt két adatot a játék adatai közül összehasonlításra.
+
+    Visszatérési érték:
+        tuple: A kiválasztott data1 és data2 adatokat tartalmazó tuple.
+    """
     game_data = random.sample(data, 2)
     data1 = game_data[0]
     data2 = game_data[1]
     return data1, data2
 
 def save_good(data1, data2):
+    """
+    Ellenőrzi, melyik választás volt helyes ("a" vagy "b"), és eltárolja a nyertes adatot
+    a következő fordulóhoz.
+
+    Paraméterek:
+        data1 (dict): Az első összehasonlítandó adat.
+        data2 (dict): A második összehasonlítandó adat.
+
+    Visszatérési érték:
+        dict: A magasabb követőszámmal rendelkező fiók adatai
+    """
     temp = ""
     check = follower_check(data1, data2)
     if check == "a":
@@ -28,6 +56,16 @@ def save_good(data1, data2):
     return temp
 
 def format_data(account):
+    """
+    Egy előre formázott szöveget készít az adott fiók adatai alapján.
+
+    Paraméterek:
+        account (dict): Az aktuális fiók adatai, amely tartalmazza a nevét, leírását, országát
+                       és követőszámát.
+
+    Visszatérési érték:
+        str: A fiók adatait tartalmazó formázott szöveg
+    """
     account_name = account["name"]
     account_descr = account["description"]
     account_country = account["country"]
